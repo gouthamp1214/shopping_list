@@ -16,7 +16,7 @@ class GroceryList extends StatefulWidget {
 }
 
 class _GroceryListState extends State<GroceryList> {
-  List<GroceryItem> _groceryItems = [];
+  final List<GroceryItem> _groceryItems = [];
   late Future<List<GroceryItem>> _loadedItems;
   String? _error;
 
@@ -27,8 +27,8 @@ class _GroceryListState extends State<GroceryList> {
   }
 
   Future<List<GroceryItem>> _loadItems() async {
-    final url = Uri.https('shopping-list-1ef23-default-rtdb.firebaseio.com',
-        'shopping-list.json');
+    final url = Uri.https('shopping-list-new-fa220-default-rtdb.firebaseio.com',
+        'shopping-list-new.json');
 
     final response = await http.get(url);
 
@@ -81,8 +81,8 @@ class _GroceryListState extends State<GroceryList> {
       _groceryItems.remove(item);
     });
 
-    final url = Uri.https('shopping-list-1ef23-default-rtdb.firebaseio.com',
-        'shopping-list/${item.id}.json');
+    final url = Uri.https('shopping-list-new-fa220-default-rtdb.firebaseio.com',
+        'shopping-list-new/${item.id}.json');
 
     final response = await http.delete(url);
 
